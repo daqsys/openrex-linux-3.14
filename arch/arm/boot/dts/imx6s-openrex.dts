@@ -12,15 +12,15 @@
 
 /dts-v1/;
 
-#include "imx6q.dtsi"
+#include "imx6dl.dtsi"
 #include "imx6qdl-openrex.dtsi"
 
 / {
-	model = "Freescale i.MX6 Quad SABRE Smart Device Board";
-	compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+	model = "Fedevel i.MX6 SOLO OpenRex";
+	compatible = "fsl,imx6s-openrex", "fsl,imx6dl";
 
 	memory {
-		reg = <0x10000000 0x80000000>; /* reg = <base_addr mem_size 2147483648 bits => 2GB> */
+		reg = <0x10000000 0x20000000>; /* reg = <base_addr mem_size  (536870912 bytes => 512MB) */
         };
 
 };
@@ -31,15 +31,6 @@
 	offset-usb-charger = <1685>;
 };
 
-&ldb {
-	lvds-channel@0 {
-		crtc = "ipu2-di0";
-	};
-
-	lvds-channel@1 {
-		crtc = "ipu2-di1";
-	};
-};
 
 &mxcfb1 {
 	status = "okay";
@@ -54,9 +45,5 @@
 };
 
 &mxcfb4 {
-	status = "okay";
-};
-
-&sata {
 	status = "okay";
 };
